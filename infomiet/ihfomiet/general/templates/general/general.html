@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/main.css' %}">
+
+</head>
+
+<body>
+
+<header>
+    <a href="{% url 'general' %}" class="logo">infoMIET</a>
+</header>
+
+<div>
+    <a href="{% url 'articles' %}">
+        <button class="articles" >
+            Статьи
+
+        </button>
+    </a>
+</div>
+
+<div>
+    <a href="{% url 'gallery' %}">
+        <button class="gallery" >
+           Галерея
+        </button>
+    </a>
+</div>
+
+<div>
+    <a href="{% url 'links' %}">
+        <button class="links">
+            Ссылки
+        </button>
+    </a>
+</div>
+
+
+
+</body>
+</html>

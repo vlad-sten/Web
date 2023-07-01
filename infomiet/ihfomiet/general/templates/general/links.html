@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ссылки</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/images.css' %}">
+</head>
+<body>
+<header>
+    <a href="{% url 'general' %}" class="logo">infoMIET</a>
+</header>
+
+<div class="article">
+    <ul>
+        <li><a href="https://miet.ru" target="_blank">Официальный сайт</a></li>
+        <li><a href="https://ru.wikipedia.org/wiki/Национальный_исследовательский_университет_«Московский_институт_электронной_техники»" target="_blank">Википедия</a></li>
+        <!--<li></li>-->
+    </ul>
+</div>
+</body>
+</html>

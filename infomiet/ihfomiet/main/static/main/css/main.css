@@ -1,0 +1,51 @@
+.articles {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    font-size: 32px;
+    padding: 24px 48px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.articles:hover {
+    background-color: #C0C0C0;
+}
+.gallery {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    font-size: 32px;
+    padding: 24px 48px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.gallery:hover {
+    background-color: #C0C0C0;
+}
+.links {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    font-size: 32px;
+    padding: 24px 48px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.links:hover {
+    background-color: #C0C0C0;
+}

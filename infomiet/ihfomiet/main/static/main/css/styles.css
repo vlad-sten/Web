@@ -1,0 +1,157 @@
+{% load static %}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+    list-style: none;
+}
+
+body {
+    height: 100vh;
+    background-image: url('../img/background.png');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    box-shadow: 0 5px 10px #000;
+}
+
+header .logo{
+    font-family: "Bauhaus 93";
+    font-size: 36px;
+    font-weight: 900;
+    color: blue;
+    transition: .5s;
+}
+
+header .logo:hover{
+    transform: scale(1.05);
+}
+
+header nav ul li {
+    width: 180px;
+    text-decoration: none;
+    font-family: sans-serif;
+    position: relative;
+    float: left;
+}
+
+header nav ul li a{
+    left: 96%;
+    padding: 18px;
+    color: #000;
+    font-size: 16px;
+    display: block;
+}
+
+nav ul li ul {
+    position: absolute;
+    left: 0;
+    width: 180px;
+    background: white;
+    display: none;
+}
+
+nav ul li ul li {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+header nav ul li ul li  a:hover {
+    background-color: #C0C0C0;
+}
+nav ul li:hover > ul{
+    display: initial;
+}
+
+
+
+.figure {
+    width: 100%; /* Ширина области */
+    height: 100%; /* Высота области */
+    margin: 0; /* Обнуляем отступы */
+}
+.figure .img {
+    margin: fill;
+    width: 10%; /* Ширина изображений */
+    height: 10%; /* Высота изображении */
+    object-fit: cover;
+    object-position: 50%, 50%;/* Вписываем фотографию в область */
+}
+
+
+.container{
+    margin-top: 200px;
+}
+
+.article{
+    position: flex;
+    margin: 100px;
+    padding: 0;
+    background: #fff;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+    list-style: none;
+    border-radius: 5px;
+    justify-content: center
+}
+
+p{
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+h2{
+    margin-top: 10px;
+    margin-left: 85%;
+    font-style: italic;
+    font-size: 16px;
+}
+h3{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 36px;
+}
+
+.makearticle {
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    font-size: 24px;
+    padding: 18px 36px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.makearticle:hover {
+    background-color: #C0C0C0;
+}
+
+.likes{
+    color: white;
+    font-size: 24px;
+}
+
+.like{
+    height: 100px;
+    width: 100px;
+}

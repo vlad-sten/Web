@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/form.css' %}">
+</head>
+<body>
+<header>
+    <a href="{% url 'index' %}" class="logo">infoMIET</a>
+
+</header>
+
+<form  class="form" id="form">
+
+    <h1 class="form_title">Вход</h1>
+
+    <div class="form_group">
+        <label class="form_label">Почта</label>
+        <input type="text" name="mail" class="form_input" required pattern="[a-z]+@+[a-z]+.+[a-z]">
+    </div>
+
+    <div class="form_group">
+        <label class="form_label">Пароль</label>
+        <input type="text" name="password" class="form_input" required minlength="8">
+    </div>
+
+    <div>
+        <a href="authorized/main2.html">
+            <button type="submit" class="form_button">Войти</button>
+        </a>
+    </div>
+
+    <div class="link">
+        <a href="{% url 'registration' %}">Регистрация</a>
+    </div>
+
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script>
+    const TOKEN = "6212410394:AAGa3ckaMWUXEruDSSo011_ACbaT49t-BPU";
+    const CHAT_ID = "-1001772947931 ";
+    const URI_API = 'https://api.telegram.org/bot6212410394:AAGa3ckaMWUXEruDSSo011_ACbaT49t-BPU/sendMessage';
+
+
+    document.getElementById('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let message = '<b>Вход в систему!</b>\n';
+        message += '<b>Почта: </b>' + this.mail.value + '\n';
+
+        axios.post(URI_API, {
+            chat_id: CHAT_ID,
+            parse_mode: 'html',
+            text: message
+        })
+
+    })
+</script>
+</body>
+</html>

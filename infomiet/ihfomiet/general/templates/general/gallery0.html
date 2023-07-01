@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+
+<header>
+    <a href="{% url 'index' %}" class="logo">infoMIET</a>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="#">Авторизация</a>
+                    <ul>
+                        <li><a href="{% url 'login' %}">Вход</a></li>
+                        <li><a href="{% url 'registration' %}">Регистрация</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div >
+    <img src="{% static 'main/img/photo1.jpg' %}" class="figure" >
+</div>
+<div  >
+        <img src="{% static 'main/img/photo2.jpg' %}" class="figure">
+</div>
+<div >
+    <img src="{% static 'main/img/photo3.jpg' %}" class="figure">
+</div>
+
+</body>
+</html>

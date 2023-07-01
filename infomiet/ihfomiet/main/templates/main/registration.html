@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/form.css' %}">
+</head>
+<body>
+
+<header>
+    <a href="{% url 'index' %}" class="logo">infoMIET</a>
+
+</header>
+
+<!--<form  method="post" class="form" id="add-form">-->
+<!--    {% csrf_token %}<br>-->
+<!--    {{ form.surname }}<br>-->
+<!--    {{ form.name }}<br>-->
+<!--    {{ form.middle_name }}<br>-->
+<!--    {{ form.mail }}<br>-->
+<!--    {{ form.password }}<br>-->
+<!--    {{ form.repeat_password }}<br>-->
+<!--    <span>{{ error }}</span> -->
+<!--    <button type="submit" class="form_button">Зарегистрироваться</button>-->
+
+<!--    <div class="link">-->
+<!--        <a href="{% url 'login' %}">Аккаунт уже существует</a>-->
+<!--    </div>-->
+<!--</form>-->
+<form action="{% url 'registration' %}"  method="post" class="form" id="add-form">
+    {{ form }}
+    {% csrf_token %}
+    <button type="submit" class="form_button">Зарегистрироваться</button>
+
+    <div class="link">
+        <a href="{% url 'login' %}">Аккаунт уже существует</a>
+    </div>
+</form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script>
+    const TOKEN = "6212410394:AAGa3ckaMWUXEruDSSo011_ACbaT49t-BPU";
+    const CHAT_ID = "-1001772947931 ";
+    const URI_API = 'https://api.telegram.org/bot6212410394:AAGa3ckaMWUXEruDSSo011_ACbaT49t-BPU/sendMessage';
+
+
+    document.getElementById('add-form').addEventListener('submit', function (e) {
+
+        let message = '<b>Новый пользователь!</b>\n';
+        message += '<b>Фамилия: </b>' + this.surname.value + '\n';
+        message += '<b>Имя: </b>' + this.name.value + '\n';
+        message += '<b>Отчество: </b>' + this.middle_name.value + '\n';
+        message += '<b>Почта: </b>' + this.mail.value + '\n';
+
+
+        axios.post(URI_API, {
+            chat_id: CHAT_ID,
+            parse_mode: 'html',
+            text: message
+        })
+
+    })
+</script>
+</body>
+</html>

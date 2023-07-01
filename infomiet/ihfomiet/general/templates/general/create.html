@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание статьи</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/form.css' %}">
+</head>
+<body>
+
+<header>
+    <a href="{% url 'index' %}" class="logo">infoMIET</a>
+</header>
+
+<form  method="post" class="form" id="add-form">
+    {% csrf_token %}<br>
+    {{ form.title }}<br>
+    {{ form.author }}<br>
+    {{ form.full_text }}<br>
+    <span>{{ error }}</span>
+    <button type="submit" class="form_button">Добавить статью </button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script>
+    const TOKEN = "6212410394:AAGa3ckaMWUXEruDSSo011_ACbaT49t-BPU";
+    const CHAT_ID = "-1001772947931 ";
+    const URI_API = 'https://api.telegram.org/bot6212410394:AAGa3ckaMWUXEruDSSo011_ACbaT49t-BPU/sendMessage';
+
+
+    document.getElementById('add-form').addEventListener('submit', function (e) {
+
+        let message = '<b>Новая статья!</b>\n';
+        message += '<b>Название: </b>' + this.title.value + '\n';
+        message += '<b>Автор: </b>' + this.author.value + '\n';
+
+
+        axios.post(URI_API, {
+            chat_id: CHAT_ID,
+            parse_mode: 'html',
+            text: message
+        })
+        location.href = 'articles.html';
+    })
+</script>
+</body>
+</html>

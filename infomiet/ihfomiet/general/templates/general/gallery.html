@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+
+<header>
+    <a href="{% url 'general' %}" class="logo">infoMIET</a>
+</header>
+
+<div >
+    <img src="{% static 'main/img/photo1.jpg' %}" class="figure" >
+</div>
+<div  >
+        <img src="{% static 'main/img/photo2.jpg' %}" class="figure">
+</div>
+<div >
+    <img src="{% static 'main/img/photo3.jpg' %}" class="figure">
+</div>
+<div class="likes" id="like_count">Likes: {{ like_amount }}</div>
+<div id="like_form">
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div>{{ form.non_field_errors }}</div>
+        {% for f in form %}
+            <p><label for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+            <div>{{ f.errors }}</div>
+        {% endfor %}
+        <button ><img src="{% static 'main/img/heart.png' %}" class="like"></button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+  (function getLikes() {
+    $.ajax({
+      url: 'get_data',
+      dataType: 'json',
+      success: function(response) {
+        let res = '<p>Likes: ' + response.like_amount + '</p>';
+        $('#like_count').html(res);
+        setTimeout(getLikes, 2500);
+      }
+    });
+  })();
+</script>
+</body>
+</html>
